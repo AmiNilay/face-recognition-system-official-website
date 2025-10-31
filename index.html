@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Face Recognition System - Real-time face detection and recognition with Python">
+    <meta name="keywords" content="face recognition, python, opencv, machine learning, AI">
+    <meta name="author" content="Nilay Naha">
+    
+    <title>Face Recognition System - Real-time AI Face Detection</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-camera"></i>
+                <span>Face Recognition</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#docs">Docs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Advanced Face Recognition System
+                </h1>
+                <p class="hero-subtitle">
+                    Real-time face detection and recognition powered by Python, OpenCV, and Machine Learning
+                </p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
+                    <a href="https://github.com/AmiNilay/face-recognition-system-version-control" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span class="stat-number">95%+</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-bolt"></i>
+                        <span class="stat-number">30 FPS</span>
+                        <span class="stat-label">Real-time</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-number">Unlimited</span>
+                        <span class="stat-label">Faces</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="demo-box">
+                    <div class="demo-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="demo-content">
+                        <div class="face-box">
+                            <div class="face-detection">
+                                <div class="face-frame"></div>
+                                <span class="face-label">John Doe</span>
+                                <span class="confidence">95.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <p class="section-subtitle">Everything you need for face recognition</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Real-time Detection</h3>
+                    <p>Detect and recognize faces in real-time from webcam or video files with 30+ FPS performance</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered</h3>
+                    <p>Uses advanced machine learning algorithms with 128-dimensional face embeddings</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Confidence Scoring</h3>
+                    <p>Get real-time confidence scores with color-coded visual feedback for accuracy</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>History Tracking</h3>
+                    <p>Automatic logging of all recognition events with timestamps and export to CSV</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Modern GUI</h3>
+                    <p>Beautiful dark-themed interface with intuitive controls and real-time statistics</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>Multi-format Support</h3>
+                    <p>Supports JPEG, PNG, GIF, TIFF, WebP, and BMP image formats</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">See It In Action</h2>
+            <p class="section-subtitle">Watch how the system works</p>
+            
+            <div class="demo-showcase">
+                <div class="demo-tabs">
+                    <button class="tab-btn active" data-tab="gui">GUI Mode</button>
+                    <button class="tab-btn" data-tab="cli">CLI Mode</button>
+                    <button class="tab-btn" data-tab="features">Key Features</button>
+                </div>
+
+                <div class="demo-content-area">
+                    <div class="tab-content active" id="gui-tab">
+                        <div class="demo-preview">
+                            <h3>Graphical User Interface</h3>
+                            <p class="demo-description">Experience the modern, dark-themed interface with real-time face detection</p>
+                            
+                            <!-- Screenshot with 16:9 Ratio -->
+                            <div class="screenshot-container">
+                                <img src="assets/FRC SS.png" 
+                                    alt="Face Recognition System - GUI Interface" 
+                                    class="screenshot-img"
+                                    loading="lazy"
+                                    onerror="this.src='assets/placeholder.png'; this.onerror=null;">
+                            </div>
+                            
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i> Modern dark-themed interface</li>
+                                <li><i class="fas fa-check"></i> Real-time face detection boxes</li>
+                                <li><i class="fas fa-check"></i> Live confidence scores</li>
+                                <li><i class="fas fa-check"></i> Easy face management</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="cli-tab">
+                        <div class="demo-preview">
+                            <h3>Command Line Interface</h3>
+                            <p class="demo-description">Lightweight and fast CLI mode for advanced users</p>
+                            
+                            <div class="code-preview">
+                                <pre><code>$ python main.py
+
+🎥 Camera started!
+
+⌨️  Controls:
+  - Press 'q' to quit
+  - Press 's' to save screenshot
+  - Press 'c' to capture and add new face
+
+Faces: 2
+Known: 5
+Avg Confidence: 92.3%</code></pre>
+                            </div>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i> Lightweight and fast</li>
+                                <li><i class="fas fa-check"></i> Keyboard shortcuts</li>
+                                <li><i class="fas fa-check"></i> Real-time statistics</li>
+                                <li><i class="fas fa-check"></i> Color-coded detection</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="features-tab">
+                        <div class="demo-preview">
+                            <h3>Advanced Capabilities</h3>
+                            <p class="demo-description">Powerful features for professional use</p>
+                            
+                            <div class="capabilities-grid">
+                                <div class="capability">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <h4>High Performance</h4>
+                                    <p>25-30 FPS on standard hardware</p>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h4>95%+ Accuracy</h4>
+                                    <p>Reliable face recognition</p>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-clock"></i>
+                                    <h4>Instant Detection</h4>
+                                    <p>Recognition in milliseconds</p>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-cogs"></i>
+                                    <h4>Customizable</h4>
+                                    <p>Adjustable settings via config</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title">Get Started</h2>
+            <p class="section-subtitle">Choose your installation method</p>
+            
+            <div class="download-cards">
+                <div class="download-card">
+                    <div class="download-header">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Quick Install</h3>
+                        <span class="badge">Recommended</span>
+                    </div>
+                    <p>Download and run the automated installer</p>
+                    <ol class="install-steps">
+                        <li>Clone the repository</li>
+                        <li>Run INSTALL.bat</li>
+                        <li>Launch with run_gui.bat</li>
+                    </ol>
+                    <a href="https://github.com/AmiNilay/face-recognition-system-version-control/archive/refs/heads/main.zip" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download ZIP
+                    </a>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-header">
+                        <i class="fab fa-github"></i>
+                        <h3>From GitHub</h3>
+                    </div>
+                    <p>Clone the repository with Git</p>
+                    <div class="code-box">
+                        <code>git clone https://github.com/AmiNilay/face-recognition-system-version-control.git</code>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <a href="https://github.com/AmiNilay/face-recognition-system-version-control" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-header">
+                        <i class="fas fa-terminal"></i>
+                        <h3>Manual Install</h3>
+                    </div>
+                    <p>Install dependencies manually</p>
+                    <div class="code-box">
+                        <code>pip install opencv-python face-recognition numpy pandas PyYAML Pillow</code>
+                        <button class="copy-btn" onclick="copyCode(this)">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <a href="#docs" class="btn btn-secondary">
+                        <i class="fas fa-book"></i> Read Docs
+                    </a>
+                </div>
+            </div>
+
+            <div class="system-requirements">
+                <h3>System Requirements</h3>
+                <div class="requirements-grid">
+                    <div class="requirement">
+                        <i class="fas fa-laptop"></i>
+                        <strong>OS:</strong> Windows 10/11, Linux, macOS
+                    </div>
+                    <div class="requirement">
+                        <i class="fab fa-python"></i>
+                        <strong>Python:</strong> 3.10 or higher
+                    </div>
+                    <div class="requirement">
+                        <i class="fas fa-memory"></i>
+                        <strong>RAM:</strong> 4GB minimum (8GB recommended)
+                    </div>
+                    <div class="requirement">
+                        <i class="fas fa-camera"></i>
+                        <strong>Camera:</strong> Any USB webcam
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="docs">
+        <div class="container">
+            <h2 class="section-title">Documentation</h2>
+            <p class="section-subtitle">Everything you need to know</p>
+            
+            <div class="docs-grid">
+                <a href="https://github.com/AmiNilay/face-recognition-system-version-control#-quick-installation-windows" class="doc-card" target="_blank">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Quick Start</h3>
+                    <p>Get up and running in minutes</p>
+                </a>
+
+                <a href="https://github.com/AmiNilay/face-recognition-system-version-control#-usage" class="doc-card" target="_blank">
+                    <i class="fas fa-book"></i>
+                    <h3>User Guide</h3>
+                    <p>Learn how to use the system</p>
+                </a>
+
+                <a href="https://github.com/AmiNilay/face-recognition-system-version-control#-troubleshooting" class="doc-card" target="_blank">
+                    <i class="fas fa-tools"></i>
+                    <h3>Troubleshooting</h3>
+                    <p>Fix common issues</p>
+                </a>
+
+                <a href="https://github.com/AmiNilay/face-recognition-system-version-control#-configuration" class="doc-card" target="_blank">
+                    <i class="fas fa-cog"></i>
+                    <h3>Configuration</h3>
+                    <p>Customize settings</p>
+                </a>
+
+                <a href="https://github.com/AmiNilay/face-recognition-system-version-control#-technologies" class="doc-card" target="_blank">
+                    <i class="fas fa-code"></i>
+                    <h3>API Reference</h3>
+                    <p>Developer documentation</p>
+                </a>
+
+                <a href="https://github.com/AmiNilay/face-recognition-system-version-control/issues" class="doc-card" target="_blank">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>FAQ</h3>
+                    <p>Frequently asked questions</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions? We'd love to hear from you</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/AmiNilay" target="_blank">@AmiNilay</a>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-code-branch"></i>
+                        <h3>Repository</h3>
+                        <a href="https://github.com/AmiNilay/face-recognition-system-version-control" target="_blank">View Project</a>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-bug"></i>
+                        <h3>Report Issues</h3>
+                        <a href="https://github.com/AmiNilay/face-recognition-system-version-control/issues" target="_blank">Issue Tracker</a>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Support</h3>
+                        <a href="https://github.com/AmiNilay/face-recognition-system-version-control" target="_blank">Star on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Face Recognition System</h3>
+                    <p>Advanced AI-powered face detection and recognition</p>
+                    <div class="social-links">
+                        <a href="https://github.com/AmiNilay" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#docs">Documentation</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/AmiNilay/face-recognition-system-version-control" target="_blank">GitHub</a></li>
+                        <li><a href="https://github.com/AmiNilay/face-recognition-system-version-control/issues" target="_blank">Issues</a></li>
+                        <li><a href="https://github.com/AmiNilay/face-recognition-system-version-control/blob/main/README.md" target="_blank">README</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Technologies</h4>
+                    <ul>
+                        <li>Python 3.10+</li>
+                        <li>OpenCV</li>
+                        <li>face_recognition</li>
+                        <li>dlib</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Face Recognition System. Created by <a href="https://github.com/AmiNilay" target="_blank">Nilay Naha</a></p>
+                <p>Licensed under MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
