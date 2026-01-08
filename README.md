@@ -1,304 +1,64 @@
-Here is the full, updated `README.md` file optimized for GitHub. I have ensured all formatting, badges, and links are correctly structured for a professional repository appearance.
-
-```markdown
-# 🎥 Face Recognition System
-
-[![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![OpenCV](https://img.shields.io/badge/OpenCV-4.12+-red.svg)](https://opencv.org/)
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-
-A comprehensive real-time face recognition system built with Python, featuring advanced detection algorithms, confidence scoring, recognition history tracking, and a modern GUI interface.
-
-![Face Recognition System](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20Mac-lightgrey)
-
----
-
-## ✨ Features
-
-### Core Functionality
-- 🎥 **Real-time Face Detection** - Instant face detection using HOG algorithm.
-- 🔍 **Face Recognition** - Accurate recognition with 128-dimensional embeddings.
-- 📊 **Confidence Scoring** - Real-time confidence percentage display (0-100%).
-- 👥 **Multi-face Detection** - Detect and recognize multiple faces simultaneously.
-- 🎨 **Color-coded Feedback** - Visual indicators based on confidence levels:
-  - 🟢 **Green (70-100%)** - High confidence
-  - 🟡 **Orange (50-70%)** - Medium confidence
-  - 🔴 **Red (<50%)** - Low confidence / Unknown
-
-### Advanced Features
-- 💾 **Recognition History** - Automatic logging with timestamps.
-- 📈 **Database Integration** - SQLite database for persistent storage.
-- 📁 **Multi-format Support** - JPEG, PNG, GIF, TIFF, WebP, BMP.
-- 📤 **Export Functionality** - Export logs to CSV.
-- ⚡ **Performance Optimized** - Processes every 3rd frame for smooth operation.
-- 🔄 **Auto-save** - Automatic history backup with configurable cooldown.
-- 🎯 **Cooldown System** - Prevents duplicate logging (default: 5 seconds).
-
-### User Interface
-- 🖥️ **Dual Mode** - GUI and command-line interface.
-- 🌙 **Dark Theme** - Professional dark-mode interface.
-- 📸 **Live Capture** - Add new faces during recognition.
-- 👤 **Face Management** - Easy add/remove/view known faces.
-- 📊 **Statistics Dashboard** - Real-time detection info and analytics.
-- 📅 **History Viewer** - Browse and filter recognition events.
-
----
-
-## 🎬 Demo
-
-### GUI Interface
-- Modern dark-themed interface.
-- Real-time video feed with face detection boxes.
-- Live confidence scores and statistics.
-- Easy face management system.
-
-### Command Line Interface
-- Lightweight and fast.
-- Green boxes for recognized faces.
-- Red boxes for unknown faces.
-- Keyboard shortcuts for quick actions.
-
----
-
-## 🚀 Quick Installation (Windows)
-
-### Easy Install (Recommended)
-
-**1. Download the project:**
-```bash
-git clone [https://github.com/AmiNilay/face-recognition-system-version-control.git](https://github.com/AmiNilay/face-recognition-system-version-control.git)
-cd face-recognition-system-version-control
-
-```
-
-**2. Run the installer:**
-
-```batch
-# Double-click or run:
-INSTALL.bat
-
-```
-
-**3. Launch the application:**
-
-```batch
-# For GUI mode:
-run_gui.bat
-
-# For CLI mode:
-run_cli.bat
-
-```
-
-That's it! ✅
-
----
-
-## 💻 Manual Installation
-
-### Prerequisites
-
-* **Python 3.10 or higher**
-* **Windows 10/11** (primary support), Linux, or macOS.
-* **Webcam** (for real-time recognition).
-* **4GB RAM minimum** (8GB recommended).
-
-### Step-by-Step Installation
-
-#### 1. Clone Repository
-
-```bash
-git clone [https://github.com/AmiNilay/face-recognition-system-version-control.git](https://github.com/AmiNilay/face-recognition-system-version-control.git)
-cd face-recognition-system-version-control
-
-```
-
-#### 2. Create Virtual Environment
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate  # Windows
-# source .venv/bin/activate  # Linux/Mac
-
-```
-
-#### 3. Install Dependencies
-
-```bash
-# Upgrade pip
-python -m pip install --upgrade pip
-
-# Install required packages
-pip install opencv-python numpy Pillow pandas PyYAML
-
-# Install face_recognition (see troubleshooting if issues occur)
-pip install face-recognition
-
-```
-
-#### 4. Verify Installation
-
-```bash
-python test_imports.py
-
-```
-
-**Expected output:**
-
-```text
-✅ OpenCV 4.12.0
-✅ NumPy 2.2.6
-✅ Pillow 12.0.0
-✅ Pandas 2.1.3
-✅ PyYAML 6.0.1
-✅ Face Recognition 1.3.0
-✅ All packages installed correctly!
-
-```
-
----
-
-## 📖 Usage
-
-### Adding Your First Face
-
-#### Method 1: Using the Script (Recommended)
-
-```bash
-python add_faces.py
-
-```
-
-1. Enter person's name.
-2. Position face in camera (centered, good lighting).
-3. Press **SPACE** to capture.
-4. Press **3** to exit.
-
-#### Method 2: Manual Image Addition
-
-1. Take a clear photo of the person.
-2. Save as `known_faces/PersonName.jpg`.
-3. Restart application.
-
----
-
-### Running Face Recognition
-
-#### GUI Mode (Recommended for Beginners)
-
-```bash
-python main.py --gui
-
-```
-
-**GUI Controls:**
-
-* **▶ Start Camera** - Begin recognition.
-* **⏹ Stop Camera** - Stop recognition.
-* **📸 Capture Face** - Add new face from video.
-* **🗑️ Remove** - Delete selected face.
-
-#### CLI Mode (For Advanced Users)
-
-```bash
-python main.py
-
-```
-
-**Keyboard Controls:**
-
-| Key | Action |
-| --- | --- |
-| `Q` | Quit application |
-| `S` | Save screenshot |
-| `C` | Capture and add new face |
-
----
-
-## 📁 Project Structure
-
-```text
-face_recognition_project/
-├── 📁 src/                          # Source code
-│   ├── face_recognition_system.py  # Main engine
-│   ├── face_detector.py            # Detection module
-│   └── database_manager.py         # SQLite operations
-├── 📁 gui/                          # GUI application
-│   └── app.py                      # Main GUI script
-├── 📁 known_faces/                  # Known face images (*.jpg)
-├── 📁 data/                         # Persistent storage (DB, CSV, PKL)
-├── 📁 config/                       # Configuration (YAML, JSON)
-├── main.py                         # Entry point
-└── requirements.txt                # Dependencies
-
-```
-
----
-
-## 🛠️ Technologies
-
-| Technology | Purpose |
-| --- | --- |
-| **Python** | Primary language |
-| **OpenCV** | Computer vision & video processing |
-| **dlib** | Face detection & landmarking |
-| **face_recognition** | High-level recognition API |
-| **SQLite3** | History & user database |
-| **Tkinter** | GUI framework |
-
----
-
-## 🔧 Configuration
-
-Edit `config/config.yaml` to customize performance:
-
-```yaml
-face_recognition:
-  tolerance: 0.6               # Lower is stricter (0.0-1.0)
-  model: 'hog'                 # 'hog' (fast) or 'cnn' (accurate)
-  process_interval: 3          # Process every Nth frame
-
-```
-
----
-
-## 🐛 Troubleshooting
-
-* **Issue:** `dlib` installation fails on Windows.
-* **Solution:** Install the CMake tool or use a pre-compiled `.whl` file compatible with your Python version.
-* **Issue:** Low FPS.
-* **Solution:** Ensure `model` is set to `hog` in `config.yaml` and increase `process_interval`.
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit changes.
-4. Open a Pull Request.
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
-
----
-
-## 📞 Contact
-
-**Developer:** Nilay Naha
-
-**GitHub:** [@AmiNilay](https://github.com/AmiNilay)
+# 📸 Face Recognition System v1.0
 
 <p align="center">
-<b>Made with ❤️ using Python</b>
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/OpenCV-4.12+-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
+  <img src="https://img.shields.io/badge/License-MIT-41AD48?style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" alt="Status">
 </p>
 
-```
+<p align="center">
+  <strong>A professional-grade, real-time biometric identification system.</strong><br>
+  Built with performance and user experience in mind, featuring advanced HOG algorithms and a sleek dark-mode GUI.
+</p>
 
-Would you like me to generate specific content for the `docs/INSTALLATION.md` or `docs/USER_GUIDE.md` files mentioned in your structure?
+---
 
-```
+## 🚀 Overview
+
+The **Face Recognition System** is a modular Python-based application that leverages deep learning to identify faces in real-time. Whether you are managing security, tracking attendance, or exploring computer vision, this system provides the tools to log, analyze, and manage identities seamlessly.
+
+
+
+### 💎 Key Highlights
+* **Intelligent Detection:** Powered by Histogram of Oriented Gradients (HOG) for rapid processing.
+* **Confidence Logic:** Dynamic color-coded visual feedback (🟢 High, 🟡 Medium, 🔴 Low).
+* **Persistence:** Built-in SQLite integration to maintain a history of every identification event.
+* **Optimized Engine:** Multi-frame skipping and performance-focused threading for high-FPS feeds.
+
+---
+
+## 🛠 Tech Stack & Architecture
+
+| Category | Technology | Usage |
+| :--- | :--- | :--- |
+| **Language** | `Python 3.10+` | Core Logic & Scripting |
+| **CV Engine** | `OpenCV` | Image transformation & Video I/O |
+| **Deep Learning** | `Dlib / Face_Recognition` | 128D Face Embeddings |
+| **UI Framework** | `Tkinter` | Modern Dark-Mode GUI |
+| **Data Science** | `Pandas / NumPy` | Recognition analytics & History |
+| **Database** | `SQLite3` | Persistent storage & logs |
+
+---
+
+## 📸 Interface Showcase
+
+### 💠 The Desktop App
+* **Real-time Feed:** Ultra-low latency video stream with detection overlays.
+* **Identity Management:** Add or remove known faces via webcam or file upload.
+* **History Logs:** Filterable database view showing who was seen and when.
+
+
+
+---
+
+## ⚙️ Installation
+
+### ⚡ The Fast Way (Windows)
+```bash
+# Clone the repository
+git clone [https://github.com/AmiNilay/face-recognition-system-version-control.git](https://github.com/AmiNilay/face-recognition-system-version-control.git)
+cd face-recognition-system-version-control
+
+# Automatic Setup
+./INSTALL.bat
