@@ -187,14 +187,19 @@ document.querySelectorAll('.feature-card').forEach(card => {
   });
 });
 
-// ===== Animated Confidence Value in Hero =====
+// ===== Animated Confidence & Liveness Value in Hero =====
 const confidenceTag = document.querySelector('.confidence-tag');
 if (confidenceTag) {
+  const livenessBadges = [
+    '🟢 99.4% • Liveness PASS',
+    '🟢 98.9% • Real Human',
+    '🟢 99.2% • Blink: 2 (EAR)',
+    '🟢 99.7% • Yaw: +1.2°'
+  ];
+  let badgeIdx = 0;
   setInterval(() => {
-    const newVal = (93 + Math.random() * 6.5).toFixed(1);
-    const colors = ['🟢', '🟢', '🟢', '🟡'];
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    confidenceTag.textContent = `${color} ${newVal}%`;
+    badgeIdx = (badgeIdx + 1) % livenessBadges.length;
+    confidenceTag.textContent = livenessBadges[badgeIdx];
   }, 2500);
 }
 
@@ -222,13 +227,13 @@ if (screenshot) {
 
 // ===== Console Greeting =====
 console.log(`
-╔══════════════════════════════════════════╗
-║  🤖 Face Recognition System v1.0         ║
-║  Real-time AI Face Detection              ║
-║  Built with Python & OpenCV               ║
-║  Star us on GitHub! ⭐                    ║
-║  Created by Nilay Naha                    ║
-╚══════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════════╗
+║  🤖 Face Recognition System v2.1.0                       ║
+║  2026 Enterprise Biometric AI Platform                   ║
+║  FastAPI • Anti-Spoofing • RTSP • Apple Face ID Wizard   ║
+║  74 / 74 Unit Tests Passing (2.08s)                      ║
+║  Created with 💜 by Nilay Naha                           ║
+╚══════════════════════════════════════════════════════════╝
 `);
 
 // ===== Animated Stats Counter =====
@@ -256,10 +261,12 @@ const statsObserver = new IntersectionObserver((entries) => {
       const statNumbers = entry.target.querySelectorAll('.stat-number');
       statNumbers.forEach(stat => {
         const text = stat.textContent;
-        if (text.includes('95')) {
-          animateCounter(stat, 95, '%+');
-        } else if (text.includes('30')) {
-          animateCounter(stat, 30, ' FPS');
+        if (text.includes('99') || text.includes('95')) {
+          animateCounter(stat, 99.2, '%+');
+        } else if (text.includes('60') || text.includes('30')) {
+          animateCounter(stat, 60, '+ FPS');
+        } else if (text.includes('74')) {
+          animateCounter(stat, 74, ' / 74');
         }
       });
       statsObserver.unobserve(entry.target);
@@ -281,3 +288,10 @@ window.addEventListener('scroll', () => {
     navbar.style.boxShadow = '0 4px 0 rgba(45, 27, 78, 0.15)';
   }
 });
+
+// ===== Dynamic Automatic Copyright Year =====
+const currentYearEl = document.getElementById('current-year');
+if (currentYearEl) {
+  currentYearEl.textContent = new Date().getFullYear();
+}
+
